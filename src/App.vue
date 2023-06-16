@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <div class="logo">
-          <img src="./assets/img/toplogo.png" alt />
+<!--          <img src="./assets/img/toplogo.png" alt />-->
         </div>
         <el-menu
           :default-active="defaultActive"
@@ -13,10 +13,10 @@
           :router="router"
         >
           <el-menu-item index="/">首页</el-menu-item>
+          <el-menu-item index="/case">保险产品</el-menu-item>
           <el-menu-item index="/news">新闻资讯</el-menu-item>
-          <el-menu-item index="/product">产品中心</el-menu-item>
-          <el-menu-item index="/case">经典案例</el-menu-item>
-          <el-menu-item index="/goin">走进科建</el-menu-item>
+<!--          <el-menu-item index="/product">保险产品</el-menu-item>-->
+          <el-menu-item index="/goin">关于我们</el-menu-item>
           <el-menu-item index="/download">下载APP</el-menu-item>
         </el-menu>
       </el-header>
@@ -27,7 +27,7 @@
         <div class="footer-content">
           <ul class="content-nav">
             <li>
-              <p>走进科建</p>
+              <p>关于我们</p>
               <span>发展历程</span>
               <span>企业文化</span>
               <span>资质荣誉</span>
@@ -39,7 +39,7 @@
               <span>行业动态</span>
             </li>
             <li>
-              <p>产品中心</p>
+              <p>保险产品</p>
               <span>介绍视频</span>
               <span>管理模式</span>
               <span>平台目标</span>
@@ -47,15 +47,15 @@
             </li>
             <li>
               <p>联系我们</p>
-              <span>邮箱：kejianlml@163.com</span>
-              <span>电话：021-55802368</span>
-              <span>地址：上海市杨浦区翔殷路128号12号楼101</span>
+              <span>邮箱：504801283@qq.com</span>
+              <span>电话：13556718254</span>
+              <span>地址：广东省东莞市莞城街道高峰楼阳光保险玉华门店</span>
             </li>
           </ul>
           <img src="./assets/img/ercode.png" alt />
         </div>
         <div class="copyright">
-          <span>科建版权所有</span>
+          <span>保险代理玉华门店版权所有</span>
         </div>
       </div>
     </el-container>

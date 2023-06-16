@@ -3,15 +3,15 @@
     <swiper id="swiperBox" v-bind:options="swiperOption" ref="mySwiper">
       <swiper-slide class="swiper-slide slide-one">
         <div class="page">
-          <h3>科建股份</h3>
-          <p>KeJian Stock</p>
+          <h3>保险代理——玉华门店</h3>
+          <p>Insurance Agent——YU HUA Store</p>
         </div>
-        <p class="slogan">立人立己 达人达己</p>
+        <p class="slogan">我们提供最全面的保险服务，让您的生活更加安心、无忧。</p>
       </swiper-slide>
       <swiper-slide class="swiper-slide slide-two">
         <div class="page">
-          <h3>经典案例</h3>
-          <p>Suecessful Cass</p>
+          <h3>保险产品</h3>
+          <p>Insurance Products</p>
         </div>
         <ul class="case-item">
           <li
@@ -246,7 +246,7 @@ export default {
 //   background: seashell;
 // }
 .slide-one {
-  background: url(../assets/img/home_top.jpg) no-repeat center;
+  background: url(../assets/img/home_top1.jpg) no-repeat center;
   background-size: cover;
 }
 .slide-two {

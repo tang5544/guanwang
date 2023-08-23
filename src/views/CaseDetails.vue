@@ -3,7 +3,7 @@
     <banner img="../assets/img/bgtop.jpg" />
     <div class="case-product">
       <div class="case-product-content">
-        <img v-lazy="imgserver+caseIdList.Img" alt />
+        <img v-lazy="require('@/assets'+caseIdList.Img)" alt />
         <p class="product-title">{{caseIdList.Title}}</p>
         <p class="product-time">{{caseIdList.CreateTime}}</p>
         <p class="product-content">{{caseIdList.Content}}</p>
@@ -21,29 +21,42 @@ export default {
   data() {
     return {
       pid: 0,
-      caseIdList: {}
+      caseIdList: {
+        Img:"",
+        Title:"",
+        CreateTime:"",
+        Content:"",
+      }
     };
   },
   created() {
-    this.pid = this.$route.params.id;
-    window.console.log(this.pid);
+    this.caseIdList.Img = this.$route.query.Img
+    this.caseIdList.Title = this.$route.query.Title
+    this.caseIdList.CreateTime = this.$route.query.CreateTime
+    this.caseIdList.Content = this.$route.query.Content
   },
   mounted() {
-    this.loadData();
+    this.caseIdList.Img = this.$route.query.Img
+    this.caseIdList.Title = this.$route.query.Title
+    this.caseIdList.CreateTime = this.$route.query.CreateTime
+    this.caseIdList.Content = this.$route.query.Content
+    // this.caseIdList =this.getParam("item")
+    console.log(this.caseIdList)
   },
+
   methods: {
-    loadData() {
-      this.$http
-        .get(`Cases/GetCasesById/${this.pid}`)
-        .then(response => {
-          //console.log(response);
-          this.caseIdList = response.data;
-          window.console.log(this.caseIdList);
-        })
-        .catch(function(error) {
-          window.console.log(error);
-        });
-    }
+// loadData() {
+//       this.$http
+//         .get(`Cases/GetCasesById/${this.pid}`)
+//         .then(response => {
+//           //console.log(response);
+//           this.caseIdList = response.data;
+//           window.console.log(this.caseIdList);
+//         })
+//         .catch(function(error) {
+//           window.console.log(error);
+//         });
+//     }
   }
 };
 </script>

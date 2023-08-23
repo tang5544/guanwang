@@ -14,14 +14,19 @@
           <p>Insurance Products</p>
         </div>
         <ul class="case-item">
+<!--          <li-->
+<!--            v-for="(item,index) in caseList"-->
+<!--            :key="index"-->
+<!--            v-lazy:background-image="imgserver + news.Img"-->
+<!--          >-->
           <li
             v-for="(item,index) in caseList"
             :key="index"
-            v-lazy:background-image="imgserver + item.Img"
+            v-lazy:background-image="require('@/assets'+item.Img)"
           >
             <router-link
               class="text-decoration"
-              :to="{ name: 'casedetails', params: { id: item.Id }}"
+              :to="{path:'/casedetails',query:{Img:item.Img,Title:item.Title,CreateTime:item.CreateTime,Content:item.Content}}"
             >
               <div class="case-item-hover">
                 <p class="hover-title">{{item.Title}}</p>
@@ -76,37 +81,64 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       caseList: [
         {
           "Id": 29,
-          "Img": "/imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg",
-          "Title": "上海市公共安全教育实训基地项目位",
-          "Content": "位于上海市青浦区沪青平公路6888号“东方绿舟”东南 角，四界范围为：东临城市河道，南至沪青平公路，西界绿湖路，北靠现有的东方绿舟停机 坪。项目用地面积65048平方米（以实测为准），新建总建筑面积约为26467平方米（地上 23500平方米，地下2967平方米）",
+          "Img": "/img/products/products1.png",
+          "Title": "建设工程完成履约保证保险",
+          "Content": "履约保证保险或履约保证险（也称履约责任保险）是指保险公司向履约保证保险的受益人（即投资人）承诺，如果投保人（即债务人，这里专指借款人）不按照合同约定或法律的规定履行义务，则由该保险公司承担赔偿责任的一种保险形式。该险种应用范围已拓展至网贷行业，主要表现为：网贷平台为项目购买履约保险，经保险正式承保的项目，如借款人兑付逾期，保险公司将按照保单约定履行保险责任，投资人的利益将会得到充分保障。\n",
           "Del": null,
           "CreateTime": "2020-06-05T21:12:45.387"
         },
         {
           "Id": 28,
-          "Img": "/imagestore/2020/0605/fcebfcd1-7b8c-4214-9fc4-c9c275ccaaf0.jpg",
-          "Title": "高端装备用特种电缆检测评估服务基地",
-          "Content": "高端装备用特种电缆检测评估服务基地建设 一期工程位于上海市宝山区山连路558号， 项目建筑面积为19324.03平方米（地上建 筑面积为15446.74平方米，地下建筑面积\n为3877.29平方米）。",
+          "Img": "/img/products/products2.png",
+          "Title": "旅行社旅游质保金保险",
+          "Content": "旅行社质量保证金是指由旅行社缴纳，旅游行政管理部门管理，用于保障旅游者权益的专用款项\n" +
+              "1995年，国家旅游局颁布了《旅行社质量保证金暂行规定》和《旅行社质量保证金暂行规定实施细则》。\n" +
+              "1996年，国务院颁布了《旅行社管理条例》，调整了我国的旅行社的分类，按照经营的业务范围将旅行社划分为国际旅行社和国内旅行社两大类型。同年，国家旅游局为实施《旅行社管理条例》，发布了《旅行社管理条例实施细则》\n" +
+              "随后国家旅游局又发布了《旅行社质量保证金赔偿办法》、《旅行社质量保证金赔偿试行标准》，使该项制度进一步规范和完善，形",
           "Del": null,
           "CreateTime": "2020-06-05T21:05:45.157"
         },
         {
           "Id": 27,
-          "Img": "/imagestore/2020/0605/e6cad4d5-0f76-4241-a112-8660acf8c281.jpg",
-          "Title": "中国移动上海公司临港数据中心",
-          "Content": "上海移动临港IDC研发与产业化基地项目一 期数据中心2#机楼微模块机房配套工程",
+          "Img": "/img/products/products3.png",
+          "Title": "建筑工程一切险",
+          "Content": "建筑工程一切险是以建筑工程中的材料、装饰物料、设备等为保险标的的保险。保险人承担的主要责任包括： (1) 洪水、地震、暴风雨、山崩、冻灾等自然灾害造成的经济损失；(2) 爆炸、空中飞行物体的坠落、火灾等意外事故造成的经济损失；(3) 盗窃、工人或技术人员缺乏经验、过失、恶意行为所造成的经济损失。",
           "Del": null,
           "CreateTime": "2020-06-05T21:02:05.567"
         },
         {
           "Id": 26,
-          "Img": "/imagestore/2020/0605/0c6fa4a8-94da-4fc5-bac4-76c59d52c2b2.jpg",
-          "Title": "上海合作组织国际司法交流培训基地项目",
-          "Content": "上海合作组织国际司法交流合作培训基地（上海政法学院）工程位于松江区泗陈公路5488号\n上海政法学院东南部，项目用地面积66125平方米（以实测为准），新建总建筑面积约为 24976平方米，其中地上建筑面积为22476平方米，地下建筑面积约为2500平方米。",
+          "Img": "/img/products/products4.png",
+          "Title": "建工意外险（总承包）",
+          "Content": "建工意外险（建工意外险）一般指建筑工程施工人员团体人身意外伤害保险",
+          "Del": null,
+          "CreateTime": "2020-06-05T20:58:05.57"
+        },
+        {
+          "Id": 26,
+          "Img": "/img/products/products5.png",
+          "Title": "农民工工资保证保险",
+          "Content": "农民工工资支付保证保险，是指由保险公司向工程项目所在地建设行政主管部门提供的保证工程项目所在地的施工承包人按规定支付建筑务工人员工资的保险。当施工承包人拖欠务工人员工资导致项目所在地建设行政主管部门及人力资源社会保障部门作出认定或法院文书裁判，由保险公司在保险金额内先行赔付。",
+          "Del": null,
+          "CreateTime": "2020-06-05T20:58:05.57"
+        },
+        {
+          "Id": 26,
+          "Img": "/img/products/products6.png",
+          "Title": "非建筑行业安责险",
+          "Content": "是指保险机构对投保的生产经营单位发生的生产安全事故造成的人员伤亡和有关经济损失等予以赔偿，并且为投保的生产经营单位提供事故预防服务的商业保险。安全生产责任保险是生产经营单位在发生生产安全事故以后对死亡、伤残者履行赔偿责任的保险，对维护社会安定和谐具有重要作用。对于高危行业分布广泛，伤亡事故时有发生的地区，发展安全生产责任保险，用责任保险等经济手段加强和改善安全生产管理，是强化安全事故风险管控的重要措施，有利于增强安全生产意识，防范事故发生，促进地区安全生产形势稳定好转；有利于预防和化解社会矛盾，减轻各级政",
+          "Del": null,
+          "CreateTime": "2020-06-05T20:58:05.57"
+        },
+        {
+          "Id": 26,
+          "Img": "/img/products/products7.png",
+          "Title": "建筑施工安全生产责任险",
+          "Content": "是指保险机构对投保的生产经营单位发生的生产安全事故造成的人员伤亡和有关经济损失等予以赔偿，并且为投保的生产经营单位提供事故预防服务的商业保险。安全生产责任保险是生产经营单位在发生生产安全事故以后对死亡、伤残者履行赔偿责任的保险，对维护社会安定和谐具有重要作用。对于高危行业分布广泛，伤亡事故时有发生的地区，发展安全生产责任保险，用责任保险等经济手段加强和改善安全生产管理，是强化安全事故风险管控的重要措施，有利于增强安全生产意识，防范事故发生，促进地区安全生产形势稳定好转；有利于预防和化解社会矛盾，减轻各级政",
           "Del": null,
           "CreateTime": "2020-06-05T20:58:05.57"
         }
@@ -117,7 +149,7 @@ export default {
           "Title": "热烈祝贺上海科建获得上海市工程监理资质",
           "Img": "/imagestore/2018/0917/98c71315-86dc-4c99-b973-c89136bd8885.jpg",
           "Type": 1,
-          "Content": "      热烈祝贺上海科建工程管理股份有限公司获得上海市工程监理资质证书(房屋建筑工程和市政公用工程）!",
+          "Content": "222222222热烈祝贺上海科建工程管理股份有限公司获得上海市工程监理资质证书(房屋建筑工程和市政公用工程）!",
           "CreateTime": "2018-09-17T19:46:46.673"
         },
         {
@@ -172,20 +204,20 @@ export default {
       return this.$refs.mySwiper.swiper;
     }
   },
-  mounted() {
-    this.$http
-      .all([
-        this.$http.get("Cases/GetCasesAll"),
-        this.$http.get(`News?type=1&num=3`)
-      ])
-      .then(
-        this.$http.spread((responseCases, responseNews) => {
-          this.caseList = responseCases.data;
-          this.newsList = responseNews.data;
-          this.loading = false;
-        })
-      );
-  }
+  // mounted() {
+  //   this.$http
+  //     .all([
+  //       this.$http.get("Cases/GetCasesAll"),
+  //       this.$http.get(`News?type=1&num=3`)
+  //     ])
+  //     .then(
+  //       this.$http.spread((responseCases, responseNews) => {
+  //         this.caseList = responseCases.data;
+  //         this.newsList = responseNews.data;
+  //         this.loading = false;
+  //       })
+  //     );
+  // }
 };
 </script>
 
@@ -223,8 +255,8 @@ export default {
 }
 //经典案例
 .case-item {
-  width: 1100px;
-  height: 500px;
+  width: 1400px;
+  //height: 500px;
   overflow: hidden;
   margin: 0 auto;
   margin-top: 30px;
@@ -232,8 +264,8 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-start;
   li {
-    width: 330px;
-    height: 250px;
+    width: 450px;
+    height: 300px;
     list-style: none;
     background-repeat: no-repeat;
     background-size: cover;

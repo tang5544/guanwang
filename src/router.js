@@ -30,7 +30,7 @@ let kejianrouter = new Router({
       component: () => import('./views/Case.vue')
     },
     {
-      path: '/casedetails/:id',
+      path: '/casedetails',
       name: 'casedetails',
       component: () => import('./views/CaseDetails.vue')
     },

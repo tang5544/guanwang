@@ -83,8 +83,8 @@
           <ul class="honor-show">
             <li v-for="(honor,index) in honorList" :key="index">
               <img
-                v-lazy="imgserver+honor.Img"
-                @click="dialogTableVisible = true ;dialogUrl = imgserver + honor.Img;dialogTitle= honor.Remark"
+                  v-lazy:background-image="require('@/assets'+honor.Img)"
+                @click="dialogTableVisible = true ;dialogUrl = require('@/assets'+honor.Img);dialogTitle= honor.Remark"
               />
             </li>
           </ul>
@@ -98,7 +98,7 @@
           </div>
           <el-carousel :interval="4000" type="card">
             <el-carousel-item v-for="(team,index) in teamItem" :key="index">
-              <div class="swiper-img" v-lazy:background-image="imgserver + team.Img"></div>
+              <div class="swiper-img" v-lazy:background-image="require('@/assets'+team.Img)"></div>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -109,7 +109,7 @@
             <p>RARTNERS</p>
             <ul class="partner-img">
               <li v-for="(partner,i) in partnerImg" :key="i">
-                <img v-lazy="imgserver+partner.Img" alt />
+                <img v-lazy:background-image="require('@/assets'+partner.Img)" alt />
               </li>
             </ul>
           </div>
@@ -130,11 +130,32 @@ export default {
   },
   data() {
     return {
-      loading: true,
-      honorList: [],
-      partnerImg: [],
-      courseList: [],
-      teamItem: [],
+      loading: false,
+      honorList: [{
+        CreateTime: "2019-09-4",
+        Id: 31,
+        Img: "/img/news/news1.jpg",
+        Remark: "玉华门店获取阳光保险代理门店资质"
+      }],
+      partnerImg: [{
+        CreateTime: "2021-08-10T01:59:55.71",
+        Id: 25,
+        Img: "/img/news/news1.jpg",
+        Remark: "丰丰"
+      }],
+      courseList:[],
+      courseList2: [
+          {
+            "Id":10,
+            "Year":"2019年9月",
+            "Content":"东莞市东城街道阳光财产保险玉华专属代理店成立"
+          }],
+      teamItem: [{
+        CreateTime: "2020-06-05T21:34:46.743",
+        Id: 16,
+        Img: "/img/news/news1.jpg",
+        Remark: "参加第七届中国（上海）国际技术进出口交易会"
+      }],
       swiperOption: {
         navigation: {
           nextEl: ".swiper-button-next",
@@ -147,36 +168,52 @@ export default {
     };
   },
   mounted() {
-    this.$http
-      .all([
-        this.$http.get("Honor/GetHonorAll"),
-        this.$http.get("Enterprise/GetEnterpriseAll"),
-        this.$http.get(`Team/GetTeamAll`),
-        this.$http.get(`Course/GetCourseAll`)
-      ])
-      .then(
-        this.$http.spread(
-          (responseHonor, responseEnterprise, responseTeam, responseCourse) => {
-            this.honorList = responseHonor.data;
-            this.partnerImg = responseEnterprise.data;
-            this.teamItem = responseTeam.data;
 
-            var groupCount = Math.ceil(responseCourse.data.length / 2);
+    var groupCount = Math.ceil(this.courseList2.length / 2);
+    window.console.log("SS");
             window.console.log(groupCount);
             for (let i = 0; i < groupCount; i++) {
               let img2 = [];
               for (let j = 0; j < 2; j++) {
-                if (responseCourse.data.length - 1 >= i * 2 + j) {
-                  img2.push(responseCourse.data[i * 2 + j]);
+                if (this.courseList2.length - 1 >= i * 2 + j) {
+                  img2.push(this.courseList2[i * 2 + j]);
                 }
               }
+              window.console.log("img2");
+              window.console.log(img2);
               this.courseList.push(img2);
             }
-            window.console.log(this.courseList);
-            this.loading = false;
-          }
-        )
-      );
+    window.console.log(this.courseList);
+    // this.$http
+    //   .all([
+    //     this.$http.get("Honor/GetHonorAll"),
+    //     this.$http.get("Enterprise/GetEnterpriseAll"),
+    //     this.$http.get(`Team/GetTeamAll`),
+    //     this.$http.get(`Course/GetCourseAll`)
+    //   ])
+    //   .then(
+    //     this.$http.spread(
+    //       (responseHonor, responseEnterprise, responseTeam, responseCourse) => {
+    //         this.honorList = responseHonor.data;
+    //         this.partnerImg = responseEnterprise.data;
+    //         this.teamItem = responseTeam.data;
+    //
+    //         var groupCount = Math.ceil(responseCourse.data.length / 2);
+    //         window.console.log(groupCount);
+    //         for (let i = 0; i < groupCount; i++) {
+    //           let img2 = [];
+    //           for (let j = 0; j < 2; j++) {
+    //             if (responseCourse.data.length - 1 >= i * 2 + j) {
+    //               img2.push(responseCourse.data[i * 2 + j]);
+    //             }
+    //           }
+    //           this.courseList.push(img2);
+    //         }
+    //         window.console.log(this.courseList);
+    //         this.loading = false;
+    //       }
+    //     )
+    //   );
   }
 };
 </script>

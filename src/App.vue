@@ -17,7 +17,7 @@
           <el-menu-item index="/news">新闻资讯</el-menu-item>
 <!--          <el-menu-item index="/product">保险产品</el-menu-item>-->
           <el-menu-item index="/goin">关于我们</el-menu-item>
-          <el-menu-item index="/download">下载APP</el-menu-item>
+          <el-menu-item index="/download">小程序</el-menu-item>
         </el-menu>
       </el-header>
       <el-main>
@@ -52,7 +52,7 @@
               <span>地址：广东省东莞市莞城街道高峰楼阳光保险玉华门店</span>
             </li>
           </ul>
-          <img src="./assets/img/ercode.png" alt />
+          <img src="./assets/img/xiaochengxu.png" alt />
         </div>
         <div class="copyright">
           <span>保险代理玉华门店版权所有</span>

@@ -22,14 +22,14 @@
 
         <div class="content-nav-item">
           <div class="item-list" v-for="(item,index) in newsList" :key="index">
-            <div class="item-img" v-lazy:background-image="imgserver + item.Img"></div>
+            <div class="item-img" v-lazy:background-image="require('@/assets'+item.Img)"></div>
 
             <p class="item-list-title">{{item.Title}}</p>
             <p class="item-list-content">{{item.Content}}</p>
             <div class="item-list-more">
               <router-link
                 class="text-decoration"
-                :to="{ name: 'newsdetails', params: { id: item.Id }}"
+                :to="{path:'/newsdetails',query:{Img:item.Img,Title:item.Title,CreateTime:item.CreateTime,Content:item.Content}}"
               >
                 <img src="../assets/img/sanjiao.png" />
                 <span>more</span>
@@ -51,25 +51,39 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       newsList: [],
       newstype: 1
     };
   },
   methods: {
     loadData() {
-      this.loading = true;
-      this.$http
-        .get(`News?type=${this.newstype}&num=6`)
-        .then(response => {
-          //console.log(response);
-          this.newsList = response.data;
-          this.loading = false;
-          //window.console.log(this.newsList);
-        })
-        .catch(function(error) {
-          window.console.log(error);
-        });
+      if (this.newstype==1){
+        let newsList1=[
+          {
+            "Id": 19,
+            "Title": "热烈祝贺玉华门店获取阳光保险代理门店资质",
+            "Img": "/img/news/news1.jpg",
+            "Type": 1,
+            "Content": "热烈祝贺玉华门店获取阳光保险代理门店资质!",
+            "CreateTime": "2019-09-4"
+          }
+        ];
+        this.newsList=newsList1;
+
+      }
+      // this.loading = true;
+      // this.$http
+      //   .get(`News?type=${this.newstype}&num=6`)
+      //   .then(response => {
+      //     //console.log(response);
+      //     this.newsList = response.data;
+      //     this.loading = false;
+      //     //window.console.log(this.newsList);
+      //   })
+      //   .catch(function(error) {
+      //     window.console.log(error);
+      //   });
     }
   },
   mounted() {

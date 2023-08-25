@@ -15,7 +15,7 @@ let kejianrouter = new Router({
       component: () => import('./views/News.vue'),
     },
     {
-      path: '/newsdetails/:id',
+      path: '/newsdetails',
       name: 'newsdetails',
       component: () => import('./views/NewsDetails.vue'),
     },

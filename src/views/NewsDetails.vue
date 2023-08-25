@@ -3,7 +3,7 @@
     <banner img="../assets/img/bgtop.jpg" />
     <div class="NewsDetails-product">
       <div class="NewsDetails-product-content">
-        <img v-lazy="imgserver+newsIdList.Img" alt />
+        <img v-lazy="require('@/assets'+newsIdList.Img)" alt />
         <p class="product-title">{{newsIdList.Title}}</p>
         <p class="product-time">{{newsIdList.CreateTime}}</p>
         <p class="product-content">{{newsIdList.Content}}</p>
@@ -26,25 +26,31 @@ export default {
     };
   },
   created() {
-    this.pid = this.$route.params.id;
-    window.console.log(this.pid);
+    this.newsIdList.Img = this.$route.query.Img
+    this.newsIdList.Title = this.$route.query.Title
+    this.newsIdList.CreateTime = this.$route.query.CreateTime
+    this.newsIdList.Content = this.$route.query.Content
   },
   mounted() {
-    this.loadData();
+    this.newsIdList.Img = this.$route.query.Img
+    this.newsIdList.Title = this.$route.query.Title
+    this.newsIdList.CreateTime = this.$route.query.CreateTime
+    this.newsIdList.Content = this.$route.query.Content
+    console.log(this.newsIdList)
   },
   methods: {
-    loadData() {
-      this.$http
-        .get(`News/GetNewsById/${this.pid}`)
-        .then(response => {
-          //console.log(response);
-          this.newsIdList = response.data;
-          window.console.log(this.newsIdList);
-        })
-        .catch(function(error) {
-          window.console.log(error);
-        });
-    }
+    // loadData() {
+    //   this.$http
+    //     .get(`News/GetNewsById/${this.pid}`)
+    //     .then(response => {
+    //       //console.log(response);
+    //       this.newsIdList = response.data;
+    //       window.console.log(this.newsIdList);
+    //     })
+    //     .catch(function(error) {
+    //       window.console.log(error);
+    //     });
+    // }
   }
 };
 </script>

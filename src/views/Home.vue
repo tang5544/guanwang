@@ -49,7 +49,7 @@
             <div :style="'order: '+ (i%2==0 ? 1: 3)">
               <router-link
                 class="text-decoration"
-                :to="{ name: 'newsdetails', params: { id: news.Id }}"
+                :to="{path:'/newsdetails',query:{Img:news.Img,Title:news.Title,CreateTime:news.CreateTime,Content:news.Content}}"
               >
                 <div class="item-img" v-lazy:background-image="require('@/assets'+news.Img)"></div>
               </router-link>
@@ -150,7 +150,7 @@ export default {
           "Img": "/img/news/news1.jpg",
           "Type": 1,
           "Content": "热烈祝贺玉华门店获取阳光保险代理门店资质!",
-          "CreateTime": "2020-09-17T19:46:46.673"
+          "CreateTime": "2019-09-4"
         }
         // ,
         // {

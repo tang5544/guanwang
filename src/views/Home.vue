@@ -51,7 +51,7 @@
                 class="text-decoration"
                 :to="{ name: 'newsdetails', params: { id: news.Id }}"
               >
-                <div class="item-img" v-lazy:background-image="imgserver + news.Img"></div>
+                <div class="item-img" v-lazy:background-image="require('@/assets'+news.Img)"></div>
               </router-link>
             </div>
             <div style="order: 2">
@@ -146,20 +146,21 @@ export default {
       newsList: [
         {
           "Id": 19,
-          "Title": "热烈祝贺上海科建获得上海市工程监理资质",
-          "Img": "/imagestore/2018/0917/98c71315-86dc-4c99-b973-c89136bd8885.jpg",
+          "Title": "热烈祝贺玉华门店获取阳光保险代理门店资质",
+          "Img": "/img/news/news1.jpg",
           "Type": 1,
-          "Content": "222222222热烈祝贺上海科建工程管理股份有限公司获得上海市工程监理资质证书(房屋建筑工程和市政公用工程）!",
-          "CreateTime": "2018-09-17T19:46:46.673"
-        },
-        {
-          "Id": 15,
-          "Title": "上海科建工程管理有限公司科创板创立大会顺利召开",
-          "Img": "/imagestore/2018/0529/d3f75b1c-cb7e-488f-95ac-8f80f5c332fe.jpg",
-          "Type": 1,
-          "Content": "历时2个月的企业经营财务状况梳理及企业内部日常行政运营工作，通过法律法规整合管理，企业各大部门如财务、运营、项目管理、技术研发，都形成了各自的工作流程，各部门相互配合，为科建今后工程管理标准化软件的广泛使用，为成为项目管理行业的佼佼者努力。2018年3月12日上午10时上海科建工程管理股份有限公司创立大会暨2018年第一次临时股东大会顺利召开。",
-          "CreateTime": "2018-07-23T16:24:11.633"
+          "Content": "热烈祝贺玉华门店获取阳光保险代理门店资质!",
+          "CreateTime": "2020-09-17T19:46:46.673"
         }
+        // ,
+        // {
+        //   "Id": 15,
+        //   "Title": "上海科建工程管理有限公司科创板创立大会顺利召开",
+        //   "Img": "/img/news/news1.jpg",
+        //   "Type": 1,
+        //   "Content": "历时2个月的企业经营财务状况梳理及企业内部日常行政运营工作，通过法律法规整合管理，企业各大部门如财务、运营、项目管理、技术研发，都形成了各自的工作流程，各部门相互配合，为科建今后工程管理标准化软件的广泛使用，为成为项目管理行业的佼佼者努力。2018年3月12日上午10时上海科建工程管理股份有限公司创立大会暨2018年第一次临时股东大会顺利召开。",
+        //   "CreateTime": "2018-07-23T16:24:11.633"
+        // }
       ],
       swiperOption: {
         notNextTick: true, //notNextTick是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true

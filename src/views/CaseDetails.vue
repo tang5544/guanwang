@@ -40,7 +40,6 @@ export default {
     this.caseIdList.Title = this.$route.query.Title
     this.caseIdList.CreateTime = this.$route.query.CreateTime
     this.caseIdList.Content = this.$route.query.Content
-    // this.caseIdList =this.getParam("item")
     console.log(this.caseIdList)
   },
 
